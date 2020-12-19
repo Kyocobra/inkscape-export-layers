@@ -15,28 +15,28 @@ There are two options for your layers when exporting:
 - **Export:** If a layer name starts with "[export]" this layer will be exported along with any [fixed] layer and combined into a single image.
 
 Once your layers are ready:
-1. Go to Extensions > Export > Export layers
+1. Go to **Extensions > Export > Export layers**
 2. Choose your export directory
 3. Choose the format of your exported layers (SVG, PNG, JPEG, PDF, etc.)
 4. Profit
 
 ## Two caveats:
-**JPEG:** JPEG is not native to Inkscape export. To export JPEG, the layers are first exported as PNG and subsequently converted using the "convert" command from ImageMagick, a command line image-editing tool (https://imagemagick.org/script/download.php). After installing ImageMagick, the .exe directory (C:\Program Files\ImageMagick) needs to be added to the system Path variable for the extension to use it.
+**JPEG:** JPEG is not native to Inkscape export. To export JPEG, the layers are first exported as PNG and subsequently converted using the "convert" command from ImageMagick, a command line image-editing tool (https://imagemagick.org/script/download.php). After installing ImageMagick, the .exe directory (C:\Program Files\ImageMagick) needs to be added to the system Path variable for this extension to use it.
 
-**PDF:** You can merge the exported layers together into one document, but this requires the PyPDF2 module, which is not native to Inkscape's default bundled Python3. If you have a separate Python3 installation, you can install pypdf2 and inkex (Inkscape API) modules through CMD:
-
-cd "C:\\python3\\bin directory" (the one with python.exe)
+**PDF MERGE:** PDF exports can be optionally merged into one document, but this requires the pypdf2 module, which is not native to Inkscape's default bundled Python3. If you have a separate Python3 installation, you can install pypdf2 and inkex (Inkscape API) modules through Windows CMD:
+```
+cd "C:\python3\bin directory"
 python -m pip install pypdf2
 python -m pip install inkex
-
+```
 Then, set your separate Python3 installation as the
 default python-interpreter for Inkscape extensions in
-"C:\\Users\\John Smith\\AppData\\Roaming\\inkscape\\preferences.xml".
-
+"C:\Users\John Smith\AppData\Roaming\inkscape\preferences.xml".
+```
 <group
-id="extensions" <!--add the line below!-->
+id="extensions"
 python-interpreter="C:\\python3\\bin directory\\python"
-... [some cached extension parameters will be here]
+...
 >
-
-If that sounds like a lot of work, you can find a PDF merger online!
+```
+If that sounds like a lot of work, you can use an online PDF merger like https://pdf.io/merge/ instead!
